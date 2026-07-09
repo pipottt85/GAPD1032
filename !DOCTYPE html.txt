@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kata Adjektif Tahun 4 SK</title>
+
+  <style>
+    :root {
+      --utama: #4CAF50;
+      --kedua: #FFCC00;
+      --biru: #64B5F6;
+      --merah: #FF7043;
+      --ungu: #9575CD;
+      --latar: #F1F8E9;
+      --putih: #ffffff;
+      --teks: #263238;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      background: linear-gradient(180deg, #E3F2FD, #F1F8E9);
+      color: var(--teks);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4CAF50, #2196F3);
+      color: white;
+      padding: 35px 20px;
+      text-align: center;
+      border-bottom: 8px solid var(--kedua);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.4rem;
+    }
+
+    header p {
+      margin: 8px 0;
+      font-size: 1.1rem;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #FFEB3B;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 14px;
+      background: white;
+      color: #2E7D32;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+      border: 2px solid #4CAF50;
+    }
+
+    nav a:hover {
+      background: #C8E6C9;
+    }
+
+    section {
+      width: 90%;
+      max-width: 1100px;
+      margin: 25px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      color: #2E7D32;
+      border-left: 8px solid #FFCC00;
+      padding-left: 12px;
+    }
+
+    h3 {
+      color: #1565C0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .teacher-card {
+      background: #FFF9C4;
+      border: 4px dashed #FFB300;
+      border-radius: 25px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .teacher-face {
+      font-size: 7rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .info-box {
+      background: #E8F5E9;
+      border-left: 8px solid #4CAF50;
+      padding: 15px;
+      border-radius: 15px;
+      margin: 15px 0;
+    }
+
+    .doa-box {
+      background: #E3F2FD;
+      border: 3px solid #64B5F6;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .arabic {
+      font-size: 1.8rem;
+      color: #0D47A1;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .profile-card {
+      background: #FFFDE7;
+      padding: 15px;
+      border-radius: 18px;
+      border: 2px solid #FFCC00;
+    }
+
+    .objective-list li {
+      background: #F1F8E9;
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 15px;
+      border-left: 6px solid #4CAF50;
+    }
+
+    .nota-card {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .card {
+      padding: 18px;
+      border-radius: 20px;
+      color: #222;
+      min-height: 150px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    }
+
+    .c1 { background: #FFCDD2; }
+    .c2 { background: #BBDEFB; }
+    .c3 { background: #C8E6C9; }
+    .c4 { background: #FFE0B2; }
+    .c5 { background: #D1C4E9; }
+    .c6 { background: #B2EBF2; }
+    .c7 { background: #F8BBD0; }
+    .c8 { background: #DCEDC8; }
+    .c9 { background: #FFF9C4; }
+
+    details {
+      background: #F5F5F5;
+      margin: 12px 0;
+      padding: 15px;
+      border-radius: 15px;
+      border-left: 6px solid #2196F3;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #1565C0;
+    }
+
+    .video-box {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+      border: 5px solid #FFCC00;
+    }
+
+    .video-box iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 6px;
+    }
+
+    button:hover {
+      background: #2E7D32;
+    }
+
+    .btn-blue {
+      background: #2196F3;
+    }
+
+    .btn-orange {
+      background: #FF7043;
+    }
+
+    .question {
+      background: #FFFDE7;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 18px;
+      border: 2px solid #FFCC00;
+    }
+
+    .question label {
+      display: block;
+      background: white;
+      padding: 8px;
+      margin: 6px 0;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    input[type="text"] {
+      padding: 12px;
+      border-radius: 12px;
+      border: 2px solid #64B5F6;
+      font-size: 1rem;
+      width: 220px;
+      max-width: 100%;
+    }
+
+    .result {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #2E7D32;
+      background: #E8F5E9;
+      padding: 15px;
+      border-radius: 15px;
+      margin-top: 12px;
+    }
+
+    .akses {
+      text-align: center;
+      background: #E1F5FE;
+      border: 3px solid #29B6F6;
+    }
+
+    footer {
+      background: #2E7D32;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .highlight {
+      background: #FFF176;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌈 Jom Belajar Kata Adjektif 🌈</h1>
+  <p>Bahasa Melayu Tahun 4 Sekolah Kebangsaan</p>
+  <p>Web Pembelajaran Interaktif dan Mesra Murid</p>
+</header>
+
+<nav>
+  <a href="#utama">Utama</a>
+  <a href="#doa">Doa</a>
+  <a href="#profil">Profil</a>
+  <a href="#objektif">Objektif</a>
+  <a href="#nota">Nota</a>
+  <a href="#video">Video</a>
+  <a href="#aktiviti">Aktiviti</a>
+  <a href="#kuiz">Kuiz</a>
+</nav>
+
+<section id="utama">
+  <div class="hero">
+    <div>
+      <h2>Selamat Datang, Murid Tahun 4!</h2>
+      <p>
+        Hari ini kita akan belajar tentang 
+        <span class="highlight">Kata Adjektif</span>.
+      </p>
+      <p>
+        Kata adjektif membantu kita menerangkan sifat, warna, bentuk, ukuran,
+        perasaan dan keadaan sesuatu benda, orang, tempat atau haiwan.
+      </p>
+
+      <div class="info-box">
+        <strong>Contoh mudah:</strong>
+        <ul>
+          <li>Bunga itu <b>cantik</b>.</li>
+          <li>Beg sekolah saya <b>berat</b>.</li>
+          <li>Ali berasa <b>gembira</b>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="teacher-card">
+      <div class="teacher-face">👩‍🏫</div>
+      <h3>Cikgu Kartun</h3>
+      <p>“Mari belajar dengan ceria!”</p>
+    </div>
+  </div>
+</section>
+
+<section id="doa">
+  <h2>🤲 Doa Sebelum Belajar</h2>
+
+  <div class="doa-box">
+    <p><b>Baca doa sebelum memulakan pembelajaran.</b></p>
+
+    <p class="arabic">
+      رَبِّ زِدْنِي عِلْمًا وَارْزُقْنِي فَهْمًا
+    </p>
+
+    <p><b>Rumi:</b></p>
+    <p>
+      Rabbi zidni ilman warzuqni fahman.
+    </p>
+
+    <p><b>Maksud:</b></p>
+    <p>
+      Ya Allah, tambahkanlah ilmuku dan kurniakanlah aku kefahaman.
+    </p>
+
+    <button onclick="alert('Alhamdulillah. Semoga pembelajaran hari ini diberkati!')">
+      Saya Sudah Baca Doa
+    </button>
+  </div>
+</section>
+
+<section id="profil">
+  <h2>📌 Maklumat Tugasan</h2>
+
+  <div class="profile-grid">
+    <div class="profile-card">
+      <h3>Nama Pelajar</h3>
+      <p><b>Nur Afifah binti Che Norhisam</b></p>
+    </div>
+
+    <div class="profile-card">
+      <h3>Kod Kursus</h3>
+      <p><b>GAPD 1032</b></p>
+    </div>
+
+    <div class="profile-card">
+      <h3>Nama Pensyarah</h3>
+      <p><b>Dr. Nofazilah binti Mohd Sajat</b></p>
+    </div>
+
+    <div class="profile-card">
+      <h3>Tajuk</h3>
+      <p><b>Kata Adjektif Tahun 4 SK</b></p>
+    </div>
+  </div>
+</section>
+
+<section id="objektif">
+  <h2>🎯 Objektif Pembelajaran</h2>
+
+  <p>Pada akhir pembelajaran ini, murid dapat:</p>
+
+  <ol class="objective-list">
+    <li>Menyatakan maksud kata adjektif dengan betul.</li>
+    <li>Mengenal pasti kata adjektif dalam ayat mudah.</li>
+    <li>Membezakan beberapa jenis kata adjektif seperti sifat, warna, ukuran, bentuk dan perasaan.</li>
+    <li>Membina ayat menggunakan kata adjektif dengan gramatis.</li>
+    <li>Menjawab kuiz interaktif berkaitan kata adjektif.</li>
+  </ol>
+</section>
+
+<section id="nota">
+  <h2>📚 Nota Kata Adjektif</h2>
+
+  <h3>Apa itu Kata Adjektif?</h3>
+  <p>
+    <b>Kata adjektif</b> ialah perkataan yang menerangkan 
+    <span class="highlight">sifat, keadaan atau ciri</span> sesuatu kata nama.
+  </p>
+
+  <div class="info-box">
+    <p><b>Formula mudah:</b></p>
+    <p>
+      Kata Nama + Kata Adjektif
+    </p>
+    <p>
+      Contoh: rumah <b>besar</b>, bunga <b>cantik</b>, air <b>panas</b>
+    </p>
+  </div>
+
+  <h3>Jenis-jenis Kata Adjektif</h3>
+
+  <div class="nota-card">
+    <div class="card c1">
+      <h3>1. Sifat / Keadaan</h3>
+      <p>Menerangkan sifat seseorang, haiwan atau benda.</p>
+      <p><b>Contoh:</b> baik, rajin, pandai, cantik, kuat</p>
+      <p><b>Ayat:</b> Amir murid yang <b>rajin</b>.</p>
+    </div>
+
+    <div class="card c2">
+      <h3>2. Warna</h3>
+      <p>Menerangkan warna sesuatu benda.</p>
+      <p><b>Contoh:</b> merah, biru, hijau, kuning, putih</p>
+      <p><b>Ayat:</b> Baju itu berwarna <b>biru</b>.</p>
+    </div>
+
+    <div class="card c3">
+      <h3>3. Ukuran</h3>
+      <p>Menerangkan saiz atau ukuran.</p>
+      <p><b>Contoh:</b> besar, kecil, panjang, pendek, tinggi</p>
+      <p><b>Ayat:</b> Pokok itu sangat <b>tinggi</b>.</p>
+    </div>
+
+    <div class="card c4">
+      <h3>4. Bentuk</h3>
+      <p>Menerangkan rupa bentuk sesuatu.</p>
+      <p><b>Contoh:</b> bulat, bujur, leper, lonjong</p>
+      <p><b>Ayat:</b> Bola itu berbentuk <b>bulat</b>.</p>
+    </div>
+
+    <div class="card c5">
+      <h3>5. Waktu</h3>
+      <p>Menerangkan masa atau tempoh.</p>
+      <p><b>Contoh:</b> awal, lewat, lama, baharu</p>
+      <p><b>Ayat:</b> Siti datang <b>awal</b> ke sekolah.</p>
+    </div>
+
+    <div class="card c6">
+      <h3>6. Jarak</h3>
+      <p>Menerangkan jauh atau dekat sesuatu tempat.</p>
+      <p><b>Contoh:</b> jauh, dekat, hampir</p>
+      <p><b>Ayat:</b> Rumah saya <b>dekat</b> dengan sekolah.</p>
+    </div>
+
+    <div class="card c7">
+      <h3>7. Perasaan</h3>
+      <p>Menerangkan emosi seseorang.</p>
+      <p><b>Contoh:</b> gembira, sedih, marah, takut</p>
+      <p><b>Ayat:</b> Adik berasa <b>gembira</b>.</p>
+    </div>
+
+    <div class="card c8">
+      <h3>8. Cara</h3>
+      <p>Menerangkan gaya atau cara sesuatu dilakukan.</p>
+      <p><b>Contoh:</b> laju, perlahan, cepat, lambat</p>
+      <p><b>Ayat:</b> Kereta itu bergerak <b>laju</b>.</p>
+    </div>
+
+    <div class="card c9">
+      <h3>9. Pancaindera</h3>
+      <p>Menerangkan rasa, bau, bunyi atau sentuhan.</p>
+      <p><b>Contoh:</b> manis, masin, wangi, busuk, kasar</p>
+      <p><b>Ayat:</b> Kuih itu sangat <b>manis</b>.</p>
+    </div>
+  </div>
+
+  <h3>Nota Tambahan</h3>
+
+  <details>
+    <summary>Kata penguat dengan kata adjektif</summary>
+    <p>
+      Kata adjektif boleh disertai kata penguat seperti 
+      <b>sangat, amat, paling, terlalu</b>.
+    </p>
+    <p>Contoh: Rumah itu <b>sangat besar</b>.</p>
+  </details>
+
+  <details>
+    <summary>Contoh kata adjektif dalam ayat</summary>
+    <ul>
+      <li>Buah mangga itu <b>manis</b>.</li>
+      <li>Cuaca hari ini sangat <b>panas</b>.</li>
+      <li>Meja itu <b>kecil</b>.</li>
+      <li>Sarah berasa <b>sedih</b>.</li>
+      <li>Jalan ke kampung itu agak <b>jauh</b>.</li>
+    </ul>
+  </details>
+
+  <button class="btn-blue" onclick="bacaNota()">🔊 Baca Nota Ringkas</button>
+  <button class="btn-orange" onclick="berhentiBaca()">⏹ Berhenti</button>
+</section>
+
+<section id="video">
+  <h2>🎥 Video Penerangan Kata Adjektif</h2>
+
+  <p>
+    Murid-murid boleh menonton video di bawah untuk memahami kata adjektif dengan lebih jelas.
+  </p>
+
+  <div class="video-box">
+    <iframe 
+      src="https://www.youtube.com/embed/W_DqwyyYTvY"
+      title="Video Penerangan Kata Adjektif"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="info-box">
+    <p><b>Arahan:</b></p>
+    <ol>
+      <li>Tonton video dengan teliti.</li>
+      <li>Catat tiga contoh kata adjektif yang kamu dengar.</li>
+      <li>Jawab aktiviti dan kuiz selepas menonton video.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="aktiviti">
+  <h2>✏️ Aktiviti Interaktif</h2>
+
+  <h3>Aktiviti 1: Isi Tempat Kosong</h3>
+  <p>Taip kata adjektif yang sesuai.</p>
+
+  <div class="question">
+    <p>1. Gajah ialah haiwan yang 
+      <input type="text" id="a1" placeholder="Jawapan">
+      .
+    </p>
+  </div>
+
+  <div class="question">
+    <p>2. Bunga ros itu berbau 
+      <input type="text" id="a2" placeholder="Jawapan">
+      .
+    </p>
+  </div>
+
+  <div class="question">
+    <p>3. Ali berasa 
+      <input type="text" id="a3" placeholder="Jawapan">
+      kerana mendapat hadiah.
+    </p>
+  </div>
+
+  <div class="question">
+    <p>4. Bola itu berbentuk 
+      <input type="text" id="a4" placeholder="Jawapan">
+      .
+    </p>
+  </div>
+
+  <button onclick="semakAktiviti()">Semak Jawapan</button>
+  <p id="keputusanAktiviti" class="result"></p>
+</section>
+
+<section id="kuiz">
+  <h2>🧠 Kuiz Kata Adjektif</h2>
+
+  <p>Pilih jawapan yang betul. Kemudian tekan butang semak markah.</p>
+
+  <form id="quizForm">
+
+    <div class="question">
+      <p><b>1. Apakah maksud kata adjektif?</b></p>
+      <label><input type="radio" name="q1" value="A"> Perkataan yang menunjukkan perbuatan</label>
+      <label><input type="radio" name="q1" value="B"> Perkataan yang menerangkan sifat atau keadaan</label>
+      <label><input type="radio" name="q1" value="C"> Perkataan yang menunjukkan nama benda</label>
+    </div>
+
+    <div class="question">
+      <p><b>2. Pilih kata adjektif warna.</b></p>
+      <label><input type="radio" name="q2" value="A"> berlari</label>
+      <label><input type="radio" name="q2" value="B"> meja</label>
+      <label><input type="radio" name="q2" value="C"> merah</label>
+    </div>
+
+    <div class="question">
+      <p><b>3. Dalam ayat “Air itu panas”, kata adjektif ialah...</b></p>
+      <label><input type="radio" name="q3" value="A"> air</label>
+      <label><input type="radio" name="q3" value="B"> itu</label>
+      <label><input type="radio" name="q3" value="C"> panas</label>
+    </div>
+
+    <div class="question">
+      <p><b>4. “Gembira” ialah kata adjektif...</b></p>
+      <label><input type="radio" name="q4" value="A"> perasaan</label>
+      <label><input type="radio" name="q4" value="B"> warna</label>
+      <label><input type="radio" name="q4" value="C"> bentuk</label>
+    </div>
+
+    <div class="question">
+      <p><b>5. Ayat manakah yang menggunakan kata adjektif?</b></p>
+      <label><input type="radio" name="q5" value="A"> Adik makan nasi.</label>
+      <label><input type="radio" name="q5" value="B"> Kucing itu comel.</label>
+      <label><input type="radio" name="q5" value="C"> Ibu memasak di dapur.</label>
+    </div>
+
+  </form>
+
+  <button onclick="semakKuiz()">Semak Markah</button>
+  <button class="btn-orange" onclick="resetKuiz()">Cuba Lagi</button>
+
+  <p id="markahKuiz" class="result"></p>
+</section>
+
+<section class="akses">
+  <h2>♿ Kemudahan Akses Murid</h2>
+  <p>Gunakan butang ini jika mahu tulisan lebih besar atau kecil.</p>
+
+  <button onclick="besarTulisan()">A+ Besarkan Tulisan</button>
+  <button onclick="kecilTulisan()">A- Kecilkan Tulisan</button>
+  <button onclick="resetTulisan()">Reset Tulisan</button>
+</section>
+
+<footer>
+  <p><b>Kata Adjektif Tahun 4 SK</b></p>
+  <p>Disediakan oleh: Nur Afifah binti Che Norhisam</p>
+  <p>Kod Kursus: GAPD 1032</p>
+</footer>
+
+<script>
+  let saizTulisan = 18;
+
+  function besarTulisan() {
+    saizTulisan += 2;
+    document.body.style.fontSize = saizTulisan + "px";
+  }
+
+  function kecilTulisan() {
+    if (saizTulisan > 14) {
+      saizTulisan -= 2;
+      document.body.style.fontSize = saizTulisan + "px";
+    }
+  }
+
+  function resetTulisan() {
+    saizTulisan = 18;
+    document.body.style.fontSize = saizTulisan + "px";
+  }
+
+  function semakAktiviti() {
+    let markah = 0;
+
+    let a1 = document.getElementById("a1").value.trim().toLowerCase();
+    let a2 = document.getElementById("a2").value.trim().toLowerCase();
+    let a3 = document.getElementById("a3").value.trim().toLowerCase();
+    let a4 = document.getElementById("a4").value.trim().toLowerCase();
+
+    if (a1 === "besar") markah++;
+    if (a2 === "wangi") markah++;
+    if (a3 === "gembira") markah++;
+    if (a4 === "bulat") markah++;
+
+    document.getElementById("keputusanAktiviti").innerHTML =
+      "Markah kamu: " + markah + "/4<br>" +
+      "Jawapan cadangan: 1. besar, 2. wangi, 3. gembira, 4. bulat";
+
+    if (markah === 4) {
+      document.getElementById("keputusanAktiviti").innerHTML +=
+      "<br>🌟 Tahniah! Jawapan kamu sangat baik.";
+    } else {
+      document.getElementById("keputusanAktiviti").innerHTML +=
+      "<br>😊 Cuba lagi. Kamu pasti boleh!";
+    }
+  }
+
+  function semakKuiz() {
+    let jawapanBetul = {
+      q1: "B",
+      q2: "C",
+      q3: "C",
+      q4: "A",
+      q5: "B"
+    };
+
+    let markah = 0;
+    let jumlah = 5;
+
+    for (let q in jawapanBetul) {
+      let pilihan = document.querySelector('input[name="' + q + '"]:checked');
+      if (pilihan && pilihan.value === jawapanBetul[q]) {
+        markah++;
+      }
+    }
+
+    let mesej = "";
+
+    if (markah === 5) {
+      mesej = "Hebat! Kamu menguasai kata adjektif. 🌟";
+    } else if (markah >= 3) {
+      mesej = "Bagus! Teruskan usaha. 👍";
+    } else {
+      mesej = "Jangan risau. Baca nota dan cuba lagi. 😊";
+    }
+
+    document.getElementById("markahKuiz").innerHTML =
+      "Markah kamu: " + markah + "/" + jumlah + "<br>" + mesej;
+  }
+
+  function resetKuiz() {
+    document.getElementById("quizForm").reset();
+    document.getElementById("markahKuiz").innerHTML = "";
+  }
+
+  function bacaNota() {
+    let teks = 
+      "Kata adjektif ialah perkataan yang menerangkan sifat atau keadaan sesuatu kata nama. " +
+      "Contohnya cantik, besar, merah, bulat, gembira, jauh dan manis. " +
+      "Kata adjektif boleh menerangkan sifat, warna, ukuran, bentuk, waktu, jarak, perasaan, cara dan pancaindera.";
+
+    let suara = new SpeechSynthesisUtterance(teks);
+    suara.lang = "ms-MY";
+    suara.rate = 0.9;
+    window.speechSynthesis.speak(suara);
+  }
+
+  function berhentiBaca() {
+    window.speechSynthesis.cancel();
+  }
+</script>
+
+</body>
+</html>
